@@ -31,7 +31,7 @@
 
                 <!-- m= margin, b= dirección de abajo, 3= tamaño del margen -->
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
+                    <label for="nombre" class="form-label">Nombre</label> <!-- for indica a que input hace referencia, el id del input debe coincidir con el for del label -->
                     <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="nombreHelp" required>
                 </div>
                 <div class="mb-3">
@@ -43,7 +43,7 @@
                     <label for="genero" class="form-label">Género</label>
                     <select class="form-select" name="genero" id="genero" required>
                         <option value="">Elija el género</option>
-                        <option value="Masculino">Masculino</option>
+                        <option value="Masculino">Masculino</option> <!-- value nos sirve para identificar el valor seleccionado, asi depende del valor seleccionado se enviara al servidor -->
                         <option value="Femenino">Femenino</option>
                     </select>
                 </div>
@@ -81,10 +81,10 @@
                             // Itera sobre los resultados de la consulta y genera una fila de tabla para cada usuario
                             // fetch_object() obtiene la siguiente fila de resultados como un objeto
                             // En cada vuelta del ciclo, saca una fila de $sql usando fetch_object() y la guarda como objeto en $datos
-                            while ($datos = $sql->fetch_object()) { ?>
+                            while ($datos = $sql->fetch_object()) { ?> <!-- El while recorre todos los resultados de la consulta sql -->
 
                                 <tr>
-                                    <th><?php echo $datos->id ?></th>
+                                    <th><?php echo $datos->id ?></th> <!-- Muestra el ID del usuario -->
                                     <td><?php echo $datos->nombre ?></td>
                                     <td><?php echo $datos->genero ?></td>
                                     <td><?php echo $datos->fecha_nacimiento ?></td>
